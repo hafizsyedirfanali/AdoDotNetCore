@@ -1,0 +1,19 @@
+﻿@page
+@model TestApp.Pages.UserListModel
+@{
+}
+
+@if (Model.PersonalDetails.Any())
+{
+    foreach (var item in Model.PersonalDetails)
+    {
+        <p>[@item.Id] @item.Name :: @item.Mobile  </p>
+        <form method="post">
+            <button type="submit" class="btn btn-danger" asp-route="@item.Id">Delete</button>
+        </form>
+    }
+}
+else
+{
+    <h2>No Record Found</h2>
+}
